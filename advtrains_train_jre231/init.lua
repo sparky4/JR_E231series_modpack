@@ -100,7 +100,7 @@ advtrains.register_wagon("KuHa_E231", {
 	base_livery = "advtrains_KuHa_E231_livery.png",
 	set_textures = jr_set_textures,
 	set_livery = jr_set_livery,
-                                       
+
 	custom_on_velocity_change = function(self, velocity, old_velocity, dtime)
 		if not velocity or not old_velocity then return end
 		if old_velocity == 0 and velocity > 0 then
@@ -345,3 +345,41 @@ advtrains.register_wagon("MoHa_E230", {
 	set_livery = jr_set_livery,
 	drops={"default:steelblock 4"},
 }, S("MoHa_E230"), "advtrains_MoHa_E230_inv.png^advtrains_jre231_inv_overlay_middle.png^advtrains_jre231_inv_overlay_left.png^advtrains_jre231_inv_overlay_right.png")
+
+-- Crafting
+
+minetest.register_craft({
+	output = 'advtrains:KuHa_E231',
+	recipe = {
+		{'default:steelblock', 'default:copperblock', 'default:steelblock'},
+		{'default:glass', 'default:copperblock', 'default:glass'},
+		{'advtrains:wheel', 'advtrains:wheel', 'advtrains:wheel'},
+	},
+})
+
+minetest.register_craft({
+	output = 'advtrains:MoHa_E230',
+	recipe = {
+		{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+		{'default:glass', 'default:copperblock', 'default:glass'},
+		{'advtrains:wheel', 'advtrains:wheel', 'advtrains:wheel'},
+	},
+})
+
+minetest.register_craft({
+	output = 'advtrains:MoHa_E231',
+	recipe = {
+		{'default:copperblock', 'default:steelblock', 'default:copperblock'},
+		{'default:glass', 'default:copperblock', 'default:glass'},
+		{'advtrains:wheel', 'advtrains:wheel', 'advtrains:wheel'},
+	},
+})
+
+minetest.register_craft({
+	output = 'advtrains:SaHa_E231',
+	recipe = {
+		{'default:steelblock', 'default:steelblock', 'default:steelblock'},
+		{'default:glass', 'default:copperblock', 'default:glass'},
+		{'advtrains:wheel', '', 'advtrains:wheel'},
+	},
+})
